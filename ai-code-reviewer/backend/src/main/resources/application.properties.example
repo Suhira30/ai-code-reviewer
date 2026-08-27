@@ -1,0 +1,5 @@
+server.port=8080
+
+# LLM API Configuration for Google Gemini
+llm.api.key=YOUR_GEMINI_API_KEY_HERE
+llm.api.url=https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent
