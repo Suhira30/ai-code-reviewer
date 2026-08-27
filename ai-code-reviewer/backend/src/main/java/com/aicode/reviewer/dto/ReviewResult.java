@@ -1,23 +1,146 @@
 package com.aicode.reviewer.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
-// STAGE 3 goal: the LLM's JSON response gets deserialized into this
-// object. Add fields here to match your prompt's requested JSON shape.
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReviewResult {
+
     private int score;
+    private String summary;
     private List<Issue> issues;
-    private List<String> improvements;
+    private String generatedCode;
 
-    // TODO: getters and setters (or convert this to a Java record later)
+    public ReviewResult() {
+    }
 
+    public ReviewResult(int score, String summary, List<Issue> issues, String generatedCode) {
+        this.score = score;
+        this.summary = summary;
+        this.issues = issues;
+        this.generatedCode = generatedCode;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public List<Issue> getIssues() {
+        return issues;
+    }
+
+    public void setIssues(List<Issue> issues) {
+        this.issues = issues;
+    }
+
+    public String getGeneratedCode() {
+        return generatedCode;
+    }
+
+    public void setGeneratedCode(String generatedCode) {
+        this.generatedCode = generatedCode;
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Issue {
         private String severity;
         private String category;
+        private String title;
         private String description;
+        private String why;
+        private String risk;
         private String suggestion;
-        // STAGE 9: add "why" and "risk" fields here for the explainability feature
+        private Integer lineNumber;
 
-        // TODO: getters and setters
+        public Issue() {
+        }
+
+        public Issue(String severity, String category, String title, String description, String why, String risk,
+                String suggestion, Integer lineNumber) {
+            this.severity = severity;
+            this.category = category;
+            this.title = title;
+            this.description = description;
+            this.why = why;
+            this.risk = risk;
+            this.suggestion = suggestion;
+            this.lineNumber = lineNumber;
+        }
+
+        public String getSeverity() {
+            return severity;
+        }
+
+        public void setSeverity(String severity) {
+            this.severity = severity;
+        }
+
+        public String getCategory() {
+            return category;
+        }
+
+        public void setCategory(String category) {
+            this.category = category;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public String getWhy() {
+            return why;
+        }
+
+        public void setWhy(String why) {
+            this.why = why;
+        }
+
+        public String getRisk() {
+            return risk;
+        }
+
+        public void setRisk(String risk) {
+            this.risk = risk;
+        }
+
+        public String getSuggestion() {
+            return suggestion;
+        }
+
+        public void setSuggestion(String suggestion) {
+            this.suggestion = suggestion;
+        }
+
+        public Integer getLineNumber() {
+            return lineNumber;
+        }
+
+        public void setLineNumber(Integer lineNumber) {
+            this.lineNumber = lineNumber;
+        }
     }
 }
