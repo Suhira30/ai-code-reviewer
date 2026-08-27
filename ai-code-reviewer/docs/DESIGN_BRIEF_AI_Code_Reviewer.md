@@ -254,3 +254,20 @@ flowchart TD
 1. **Frontend Engineers:** Implement design tokens in Tailwind CSS config or MUI theme provider.
 2. **Component Library Setup:** Build `CodeEditorInput`, `ScoreGauge`, `IssueAccordionCard`, and `SkeletonLoader`.
 3. **Usability Testing:** Run screen reader audit (NVDA/VoiceOver) on accordion keyboard navigation.
+
+---
+
+## 8. Implemented Design Practices & UX Enhancements
+
+### 🤖 LLM Architecture & Structured Output Alignment
+* **Google Gemini System Instructions (`system_instruction`):** Native separation of system directives (persona, schema, language audit rules) from untrusted user code in REST API requests.
+* **API-Level JSON Enforcement (`responseMimeType: "application/json"`):** Configured in `generationConfig` to guarantee 100% type-safe JSON output from Gemini models without markdown code fences.
+
+### 🎨 User Experience (UX) & Design System Polish
+* **Dynamic Theme Switcher (Dark & Light Mode):** Dynamic CSS token switching (`#0D1117` Dark vs. `#F6F8FA` Light) with persistent user preference stored in `localStorage`.
+* **Recent Review History Drawer:** Local history bar storing past 5 review results with 1-click reload and score badges.
+* **1-Click Sample Loaders:** Interactive snippet loaders for Java, Python, and SQL.
+* **Keyboard Hotkey:** `Ctrl + Enter` (or `Cmd + Enter`) shortcut to trigger code analysis directly from the editor.
+* **Real-time Code Statistics:** Live line count (LOC), word count, and character limit indicators.
+* **Individual Copy Fix Buttons:** Single-click copy buttons on all suggested code fixes and unit test blocks.
+
